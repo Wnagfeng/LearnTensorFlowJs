@@ -32,10 +32,9 @@ window.onload = async () => {
       activation: "sigmoid", //暂时用sigmoid函数
     })
   );
-  //   第二层 (多分类神经网络的核心代码)
+  //   第二层 (多分类神经网络的核心代码)--第二层获取的是上一层训练好的权重，而不是原始的输入数据  所以我们不需要指定inputShape
   model.add(
     tf.layers.dense({
-      inputShape: [xTrain.shape[1]], //这是输入层的神经元个数shape保存的就是个数
       units: 3, //第二层神经元个数：由输出集个数决定  这样才能输出三个概率
       activation: "softmax", //最后一层用softmax函数
     })
